@@ -13,7 +13,7 @@ import I4 from "../assets/I4.png"
 const Footer = () => {
   return (
     <>
-        <div className='bg-black pt-[80px] pb-[124px]'>
+        <div className='bg-black mt-[40px] pt-[80px] pb-[124px]'>
             <Container>
                 
 

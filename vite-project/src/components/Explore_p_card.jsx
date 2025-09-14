@@ -1,37 +1,57 @@
 import React from 'react'
 import Flex from './Flex'
+import Eye from "../assets/Eye.png"
+import Heart from "../assets/Heart.png"
 import Explore_products from './Explore_products'
+import Star1 from "../assets/fillstar.png"
+import Star2 from "../assets/emptystar.png"
+import Star3 from "../assets/starhalffilled.png"
+import { Rate } from 'antd';
 
-const Explore_p_card = ({image1, ic1, ic2, children, text, dolllar, dolllar1, count, fillstar, fillstar1,fillstar2,fillstar3,fillstar4,halfstar}) => {
+
+const Explore_p_card = ({item}) => {
+
+  if (!item) return null;
+
+  const price = Number(item.price) || 0;
+  const discount = Math.min(Math.max(Number(item.discountPercentage) || 0, 0), 99.99);
+  const originalPrice = discount > 0 ? Math.floor(price / (1 - discount / 100)) : null;
+  const rating = Math.max(0, Math.min(5, Number(item.rating) || 0));
+
   return (
     <>
     <div>
-         <Flex className= "items-center">
-             <div className='bg-[#F5F5F5] w-[270px] h-[250px] flex items-center justify-center relative box xs:mx-auto'>
-                <img src={image1} alt="" />
-                <img className='absolute top-[12px] right-[12px]' src={ic1} alt="" />
-                <img className='absolute top-[54px] right-[12px]' src={ic2} alt="" />
-                 {children}
+         
+             <div className='bg-[#F5F5F5] w-[270px] h-[250px] justify-center relative box xs:mx-auto overflow-hidden'>
+                <img src={item.thumbnail} alt="" />
+                {/* <img className='absolute top-[12px] right-[12px]' src={ic1} alt="" />
+                <img className='absolute top-[54px] right-[12px]' src={ic2} alt="" /> */}
+                <h3 className='text-[12px] font-normal px-[12px] py-[4px] bg-[#DB4444] rounded-[4px] text-white absolute top-[12px] left-[12px]'>{item.discountPercentage}%</h3>
+             <button className='btn'><p>Add To Cart</p></button>
+
+                 {/* {children} */}
          
      </div>
            
        
-       </Flex>
+      
       <div className='ml-[10px] xs:text-center lg:text-left'>
-           <h4 className='text-[16px] text-black font-medium mt-[16px]'>{text}</h4>
-           <p className='text-[#DB4444] text-[16px] font-medium mt-[8px]'>{dolllar} 
-            <span className='text-gray-500 ml-[12px] line-through'>{dolllar1}</span></p>
+           <h4 className='text-[16px] text-black font-medium mt-[16px]'>{item.title}</h4>
+           <p className='text-[#DB4444] text-[16px] font-medium mt-[8px]'>{item.price} 
+            <span className='text-gray-500 ml-[12px] line-through'>{Math.floor (item.price / (1-item.discountPercentage / 100))}</span></p>
             <div>
                <div className='flex items-center xs:justify-center lg:justify-normal gap-[4px]'>
-              <img src={fillstar} alt="" />
-              <img src={fillstar1} alt="" />
-              <img src={fillstar2} alt="" />
-              <img src={fillstar3} alt="" />
-              <img src={fillstar4} alt="" />
-              <img className='ml-[-5px]' src={halfstar} alt=""/>
-              <p className='text-gray-500 text-[14px] font-semibold ml-[8px]'>{count}</p>
-              
+              {/* <img src={Star1} alt="" />
+              <img src={Star1} alt="" />
+              <img src={Star1} alt="" />
+              <img src={Star1} alt="" />
+              <img src={Star2} alt="" />
+               */}
 
+                     <Rate value={item.rating} />
+              <p className='text-gray-500 text-[14px] font-semibold ml-[8px]'>{item.reviews[0].rating}</p>
+              
+                  
             
 
               
@@ -40,7 +60,7 @@ const Explore_p_card = ({image1, ic1, ic2, children, text, dolllar, dolllar1, co
             </div>
 
 
-             <label>
+             {/* <label>
                
                <Flex className= "gap-[8px] mt-[8px]">
                 <input type="radio" name="color" value="red" class="sr-only peer" checked />
@@ -50,7 +70,7 @@ const Explore_p_card = ({image1, ic1, ic2, children, text, dolllar, dolllar1, co
 
                </Flex>
               
-            </label>
+            </label> */}
            
            
            
