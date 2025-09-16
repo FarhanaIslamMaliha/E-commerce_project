@@ -1,22 +1,38 @@
 import {useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Explore_p_card from './Explore_p_card';
+import { useSelector } from 'react-redux';
 
 
-const Paginations = ({ itemsPerPage, allproducts }) => {
+const Paginations = ({itemsPerPage}) => {
 
-    const items = allproducts;
+    const productData = useSelector((state) => state.ProductSlice.product)
+    const items = productData;
 
 function Items({ currentItems }) {
   return (
     <>
       {currentItems &&
-          currentItems.map((item, index) => (   // ✅ no nested map
-            <Explore_p_card
-              key={index}           // ✅ stable key
-              item={item}                       // ✅ correct prop name
+          currentItems.map((item) => {
+            return(
+              <div className='mb-10'>
+                <Explore_p_card
+              // key={index}           
+              // item={item}  
+              Img =  {item.thumbnail} 
+              discount = {item.discountPercentage}
+              title = {item.title}
+              price ={item.price}
+              discountprice = {Math.floor (item.price / (1-item.discountPercentage / 100))}
+              rating={item.rating}
+              review = {item.review}
+                               
             />
-          ))}
+
+              </div>
+            );
+            
+})}
     </>
   );
 }
@@ -53,6 +69,7 @@ function Items({ currentItems }) {
         previousLabel=""
         renderOnZeroPageCount={null}
         className='flex gap-4'
+        pageClassName='px-[25px] py-[2px] bg-black text-white'
       />
     </>
    

@@ -3,7 +3,7 @@ import React from 'react'
 const Skeleton = () => {
   return (
    <>
-    <div role="status" className="max-w-sm p-4 rounded-sm shadow-sm animate-pulse md:p-6">
+    <div role="status" className="w-[270px] h-[250px] animate-pulse">
   <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
   </div>
   <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />

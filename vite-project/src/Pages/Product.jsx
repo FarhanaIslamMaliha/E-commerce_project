@@ -7,6 +7,8 @@ import Explore_p_card from '../components/Explore_p_card'
 import axios from "axios"
 import Skeleton from '../components/Skeleton'
 import Paginations from '../components/Paginations'
+import { useDispatch } from 'react-redux'
+import { ProductReducer } from '../Slices/ProductSlice'
 
 
 const Product = () => {
@@ -14,11 +16,12 @@ const Product = () => {
   const [allproducts, setAllProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [optionValue,setOptionValue] = useState(6);
-
+  const dispatch = useDispatch()
 
   async function getAllProducts(){
       let data = await axios.get("https://dummyjson.com/products");
       setAllProducts(data.data.products);
+      dispatch(ProductReducer(data.data.products))
      setLoading(false)
     }
 
@@ -45,7 +48,7 @@ const Product = () => {
                   
                   <h3 className='mb-[15px] font-bold text-[20px]'>Shop by Category</h3>
                                 <ul>
-                                  <li className='flex items-center lg:justify-between justify-baseline'>Woman’s Fashion<a href="#"></a> </li>
+                                  {/* <li className='flex items-center lg:justify-between justify-baseline'>Woman’s Fashion<a href="#"></a> </li>
                                   <li className='flex items-center lg:justify-between justify-baseline'>Men’s Fashion<a href="#"></a></li>
                                   <li>Electronics</li>
                                   <li>Home & Lifestyle</li>
@@ -53,7 +56,13 @@ const Product = () => {
                                   <li>Sports & Outdoor</li>
                                   <li>Baby’s & Toys</li>
                                   <li>Groceries & Pets</li>
-                                  <li>Health & Beauty</li>
+                                  <li>Health & Beauty</li> */}
+
+                                  {
+                                    allproducts.map((item) =>(
+                                      <li>{item.category}</li>
+                                    ))
+                                  }
                                  </ul>
 
                                  <div>
@@ -95,22 +104,21 @@ const Product = () => {
                         return <Explore_p_card item={item}/>
                       })
                     } */}
-                    { loading ?
-
-                  <div className='flex justify-between'>
-                    <Skeleton/>
-                    <Skeleton/>
-                    <Skeleton/>
-                     {/* {Array.from({length}).map((_, idx) => {
-                       <Skeleton key={idx}/>
+                    { loading ? (
+                       <div className='flex flex-wrap gap-6'>
+                    
+                     {Array.from({ length: optionValue }).map((_, idx)=>(
+                      <Skeleton key={idx}/>
+                     ))
                      }
                        
-                    )} */}
+                    
 
                   </div>
+                    )
                     :
                     (
-                    <Paginations itemsPerPage = {optionValue} allproducts = {allproducts}/>
+                    <Paginations itemsPerPage = {optionValue}/>
                     )
                       
                  
