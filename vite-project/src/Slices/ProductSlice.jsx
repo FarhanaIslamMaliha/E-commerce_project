@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   product: null,
+  cart:[]
 }
 
 export const ProductSlice = createSlice({
@@ -11,11 +12,17 @@ export const ProductSlice = createSlice({
     ProductReducer: (state, action) => {
       state.product = action.payload;
     },
+    FilterReducer: (state, action) => {
+      state.product = action.payload;
+    },
+    AddToCartReducer: (state, action) => {
+      state.cart = [...state.cart, action.payload];
+    },
     
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { ProductReducer } = ProductSlice.actions
+export const { ProductReducer,FilterReducer, AddToCartReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer

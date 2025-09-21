@@ -20,7 +20,7 @@ const Home = () => {
   // }, [])
   return (
     <>
-      
+     
       <Banner/>
       <Flash_sales/>
       <Categories/>

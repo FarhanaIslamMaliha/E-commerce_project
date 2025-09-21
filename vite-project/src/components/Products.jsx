@@ -13,13 +13,15 @@ import Star2 from "../assets/emptystar.png"
 import Star3 from "../assets/starhalffilled.png"
 import Eye from "../assets/Eye.png"
 import Heart from "../assets/Heart.png"
+import BreadCrumb from './BreadCrumb'
 
 const Products = () => {
   return (
     <>
          <div>
             <Container className= "mt-[70px]">
-        <Flex>
+              <BreadCrumb/>
+        {/* <Flex>
             <Heading
                     title = "This Month"
                     head = "Best Selling Products"
@@ -121,7 +123,7 @@ const Products = () => {
 
 
       </Flex>
-      
+       */}
        
        
     

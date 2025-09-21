@@ -8,7 +8,7 @@ import axios from "axios"
 import Skeleton from '../components/Skeleton'
 import Paginations from '../components/Paginations'
 import { useDispatch } from 'react-redux'
-import { ProductReducer } from '../Slices/ProductSlice'
+import { ProductReducer, FilterReducer } from '../Slices/ProductSlice'
 
 
 const Product = () => {
@@ -16,6 +16,11 @@ const Product = () => {
   const [allproducts, setAllProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [optionValue,setOptionValue] = useState(6);
+  const [category, setCategory] = useState([])
+  
+
+
+
   const dispatch = useDispatch()
 
   async function getAllProducts(){
@@ -24,7 +29,10 @@ const Product = () => {
       dispatch(ProductReducer(data.data.products))
      setLoading(false)
     }
-
+useEffect(()=>{
+  const uniqueCategory = [...new Set(allproducts.map((item)=> item.category))];
+  setCategory(uniqueCategory);
+},[allproducts])
   useEffect(() => {
     // fetch('https://dummyjson.com/products')
     // .then(res => res.json())
@@ -33,6 +41,16 @@ const Product = () => {
     getAllProducts()
 
   },[]) 
+
+
+  const handleFilter = (item) =>{
+    const filterProduct = allproducts.filter((Citem)=> Citem.category == item)
+    dispatch(FilterReducer(filterProduct))
+  }
+
+  const handleAllProduct = () => {
+      dispatch(ProductReducer(allproducts))
+  }
 
   return (
     <>
@@ -48,19 +66,12 @@ const Product = () => {
                   
                   <h3 className='mb-[15px] font-bold text-[20px]'>Shop by Category</h3>
                                 <ul>
-                                  {/* <li className='flex items-center lg:justify-between justify-baseline'>Woman’s Fashion<a href="#"></a> </li>
-                                  <li className='flex items-center lg:justify-between justify-baseline'>Men’s Fashion<a href="#"></a></li>
-                                  <li>Electronics</li>
-                                  <li>Home & Lifestyle</li>
-                                  <li>Medicine</li>
-                                  <li>Sports & Outdoor</li>
-                                  <li>Baby’s & Toys</li>
-                                  <li>Groceries & Pets</li>
-                                  <li>Health & Beauty</li> */}
-
+                                  
+                                <li className='capitalize cursor-pointer select-none' onClick={handleAllProduct}>All Products</li>
                                   {
-                                    allproducts.map((item) =>(
-                                      <li>{item.category}</li>
+                                    category.map((item, id) =>(
+
+                                      <li className='capitalize cursor-pointer select-none' key={id} onClick={() => handleFilter(item)}>{item}</li>
                                     ))
                                   }
                                  </ul>
@@ -98,12 +109,8 @@ const Product = () => {
                    </div>
 
                   </div>
-                  <div className='flex flex-wrap gap-5'>
-                    {/* {
-                       allproducts.map((item) =>{
-                        return <Explore_p_card item={item}/>
-                      })
-                    } */}
+                  <div>
+                    
                     { loading ? (
                        <div className='flex flex-wrap gap-6'>
                     
@@ -111,13 +118,9 @@ const Product = () => {
                       <Skeleton key={idx}/>
                      ))
                      }
-                       
-                    
-
+                  
                   </div>
-                    )
-                    :
-                    (
+                    ) : (
                     <Paginations itemsPerPage = {optionValue}/>
                     )
                       

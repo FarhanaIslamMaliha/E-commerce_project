@@ -12,12 +12,20 @@ import Explore_products from './components/Explore_products'
 import Arrival from './components/Arrival'
 import Customer_Service from './components/Customer_Service'
 import Footer from './components/Footer'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from './RootLayout'
 import Home from './Pages/Home'
 import Product from './Pages/Product'
-
-import {createBrowserRouter,RouterProvider} from "react-router";
-import RootLayout from './RootLayout'
+import P_Details from './Pages/P_Details'
 import Wishlist from './Pages/Wishlist'
+import Explore_productsP from './Pages/Explore_productsPage'
+import Cartpage from './Pages/Cartpage'
+
+
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -26,7 +34,10 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "product", Component: Product },
-      { path: "Wishlist", Component: Wishlist}
+      { path: "Wishlist", Component: Wishlist},
+      { path: "P_Details/:id", Component: P_Details},
+      { path: "Explore_products", Component: Explore_productsP},
+      {path: "Cart", Component: Cartpage}
       
         ],
       },

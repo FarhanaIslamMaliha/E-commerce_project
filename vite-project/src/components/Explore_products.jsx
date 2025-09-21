@@ -19,7 +19,9 @@ import Eye from "../assets/Eye.png"
 import Heart from "../assets/Heart.png"
 import Explore_p_card from './Explore_p_card'
 
+
 const Explore_products = () => {
+   
   return (
      <>
          <div>
@@ -35,7 +37,7 @@ const Explore_products = () => {
 
       <Flex className = "gap-[30px]">
           <div>
-           <Explore_p_card
+           <Card
                     image1= {Ex1} 
                     ic1={Heart}
                     ic2={Eye}
@@ -53,12 +55,12 @@ const Explore_products = () => {
                    
              <button className='btn'><p>Add To Cart</p></button>
        
-                </Explore_p_card>
+                </Card>
                
         </div>
         
          <div>
-           <Explore_p_card
+           <Card
                     image1= {Ex2} 
                     ic1={Heart}
                     ic2={Eye}
@@ -74,7 +76,7 @@ const Explore_products = () => {
                 >
                    
              <button className='btn'><p>Add To Cart</p></button>
-                </Explore_p_card>
+                </Card>
                
         </div>
 
@@ -99,23 +101,12 @@ const Explore_products = () => {
         </div>
 
          <div>
-         <Explore_p_card
-                    image1= {Ex7} 
-                    ic1={Heart}
-                    ic2={Eye}
-                    text = "ACurology Product Set"
-                    dolllar = "$500"
-                    fillstar={Star1}
-                    fillstar1={Star1}
-                    fillstar2={Star1}
-                    fillstar3={Star1}
-                    fillstar4={Star2}
-                    
-                    count= "(145)"
+         <Card
+                  
                 >
                    
               <button className='btn'><p>Add To Cart</p></button>
-                </Explore_p_card>
+                </Card>
         </div>
 
 
