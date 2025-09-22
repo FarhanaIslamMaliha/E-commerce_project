@@ -100,14 +100,30 @@ const Explore_products = () => {
                 </Card>
         </div>
 
-         <div>
+        <div>
          <Card
-                  
+                    image1= {Ex7} 
+                    ic1={Heart}
+                    ic2={Eye}
+                    text = "Curology Product Set "
+                    dolllar = "$500"
+                    fillstar={Star1}
+                    fillstar1={Star1}
+                    fillstar2={Star1}
+                    fillstar3={Star2}
+                    fillstar4={Star2}
+                    count= "(145)"
+                       
                 >
+                 
                    
-              <button className='btn'><p>Add To Cart</p></button>
+             <button className='btn'><p>Add To Cart</p></button>
+       
                 </Card>
+               
         </div>
+
+        
 
 
        
@@ -117,11 +133,12 @@ const Explore_products = () => {
       </Flex>
 
       <Flex className = "gap-[30px] mt-[60px]">
+            
+        
+         <div>
 
-            <div>
-               <Explore_p_card
-
-               image1= {Ex4} 
+         <Card
+                    image1= {Ex4} 
                     ic1={Heart}
                     ic2={Eye}
                     text = "Kids Electric Car"
@@ -130,29 +147,18 @@ const Explore_products = () => {
                     fillstar1={Star1}
                     fillstar2={Star1}
                     fillstar3={Star1}
-                    fillstar4={Star1}
-                    count= "(65)"
+                    fillstar4={Star2}
                     
-               
-               
-               >
-
-
+                    count= "(65)"
                   
-                       
-                
-                
-                
+                >
                    
-             <h3 className='text-[12px] font-normal px-[12px] py-[4px] bg-[#00FF66] rounded-[4px] text-white absolute top-[12px] left-[12px]'>NEW</h3>
-             <button className='btn'><p>Add To Cart</p></button>
-                  
-               </Explore_p_card>
-               
-             </div>
+              <button className='btn'><p>Add To Cart</p></button>
+         </Card>
+         </div>
 
-               <div>
-                <Explore_p_card
+         <div>
+         <Card
                     image1= {Ex5} 
                     ic1={Heart}
                     ic2={Eye}
@@ -162,44 +168,40 @@ const Explore_products = () => {
                     fillstar1={Star1}
                     fillstar2={Star1}
                     fillstar3={Star1}
-                    fillstar4={Star1}
+                    fillstar4={Star2}
+                    
                     count= "(35)"
-                       
+                  
                 >
-                 
                    
-             <button className='btn'><p>Add To Cart</p></button>
-       
-                </Explore_p_card>
-               
-             </div>
+              <button className='btn'><p>Add To Cart</p></button>
+         </Card>
+         </div>
+         <div>
 
-              <div>
-                <Explore_p_card
+          <Card
                     image1= {Ex6} 
                     ic1={Heart}
                     ic2={Eye}
                     text = "GP11 Shooter USB Gamepad"
-                    dolllar = "$960"
+                    dolllar = "$660"
                     fillstar={Star1}
                     fillstar1={Star1}
                     fillstar2={Star1}
                     fillstar3={Star1}
-                    halfstar={Star3}
+                    fillstar4={Star2}
+                    
                     count= "(55)"
-                       
+                  
                 >
-                 
                    
-             <h3 className='text-[12px] font-normal px-[12px] py-[4px] bg-[#00FF66] rounded-[4px] text-white absolute top-[12px] left-[12px]'>NEW</h3>
-             <button className='btn'><p>Add To Cart</p></button>
-       
-                </Explore_p_card>
-               
-             </div>
+              <button className='btn'><p>Add To Cart</p></button>
+         </Card>
 
-                <div>
-                <Explore_p_card
+        </div>
+
+        <div>
+          <Card
                     image1= {Ex8} 
                     ic1={Heart}
                     ic2={Eye}
@@ -208,8 +210,8 @@ const Explore_products = () => {
                     fillstar={Star1}
                     fillstar1={Star1}
                     fillstar2={Star1}
-                    fillstar3={Star1}
-                    halfstar={Star3}
+                    fillstar3={Star2}
+                    fillstar4={Star2}
                     count= "(55)"
                        
                 >
@@ -217,12 +219,10 @@ const Explore_products = () => {
                    
              <button className='btn'><p>Add To Cart</p></button>
        
-                </Explore_p_card>
-               
-             </div>
-
+                </Card>
+         
+        </div>
             
-
 
 
       </Flex>

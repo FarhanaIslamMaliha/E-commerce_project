@@ -1,18 +1,23 @@
 import React from 'react'
 import Container from './Container'
-import Flex from './Flex'
-import Button from './Button'
-import Heading from './Heading'
-import Card from './Card'
 import P1 from "../assets/P1.png"
 import P2 from "../assets/P2.png"
 import P3 from "../assets/P3.png"
 import P4 from "../assets/P4.png"
-import Star1 from "../assets/fillstar.png"
-import Star2 from "../assets/emptystar.png"
-import Star3 from "../assets/starhalffilled.png"
+import Flex from './Flex'
+import Heading from './Heading'
+import Button from './Button'
+import Card from './Card'
 import Eye from "../assets/Eye.png"
 import Heart from "../assets/Heart.png"
+import Star1 from "../assets/fillstar.png"
+import Star3 from "../assets/starhalffilled.png"
+
+
+
+
+
+
 import BreadCrumb from './BreadCrumb'
 
 const Products = () => {
@@ -20,8 +25,8 @@ const Products = () => {
     <>
          <div>
             <Container className= "mt-[70px]">
-              <BreadCrumb/>
-        {/* <Flex>
+              {/* <BreadCrumb/> */}
+        <Flex>
             <Heading
                     title = "This Month"
                     head = "Best Selling Products"
@@ -123,7 +128,7 @@ const Products = () => {
 
 
       </Flex>
-       */}
+      
        
        
     

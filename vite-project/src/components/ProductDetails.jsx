@@ -18,9 +18,12 @@ import D2 from "../assets/d2.png"
 import D3 from "../assets/d3.png"
 import D4 from "../assets/d4.png"
 import D5 from "../assets/d5.png"
+import { FiHeart } from "react-icons/fi";
 import axios from 'axios'
 import { useParams } from 'react-router'
 import { Rate } from 'antd';
+import bus from '../assets/bus.png'
+import round from '../assets/round.png'
 
 
 const ProductDetails = () => {
@@ -90,10 +93,108 @@ const ProductDetails = () => {
                         <h3 className='text-[14px]'>
                           ${allproducts.price}
                         </h3>
-                        <p className='mt-4'>
+                        <p className='mt-4 border-b-2 border-[#807b7b] pt-[20px] pb-[20px]'>
                           {allproducts.description}
                         </p>
                     </div>
+                    <div className="flex items-center gap-4 mt-[8px]">
+                            <span className="text-[20px] ">Colours:</span>
+
+                            
+                            <div className="w-6 h-6 rounded-full border-2 border-black flex items-center justify-center">
+                                <div className="w-4 h-4 rounded-full bg-blue-300">
+                                </div>
+                                
+                            </div>
+
+                            
+                            <div className="w-6 h-6 rounded-full bg-rose-500">
+
+
+                            </div>
+
+
+
+                    </div>
+
+
+                    <div className='flex gap-4 mt-[24px]'>
+                                <h3 className='text-[20px] mt-[10px]'>Size:</h3>
+                                <div className='w-[32px] h-[32px] rounded-md border-2 border-[#807b7b] mt-[8px] hover:bg-[#DB4444]'>
+                                    <h3 className='text-center'>XS</h3>
+                                </div>
+
+                                <div className='w-[32px] h-[32px] rounded-md border-2 border-[#807b7b] mt-[8px] hover:bg-[#DB4444]'>
+                                    <h3 className='text-center'>S</h3>
+                                </div>
+
+                                <div className='w-[32px] h-[32px] rounded-md border-2 border-[#807b7b] mt-[8px] hover:bg-[#DB4444]'>
+                                    <h3 className='text-center'>M</h3>
+                                </div>
+
+                                <div className='w-[32px] h-[32px] rounded-md border-2 border-[#807b7b] mt-[8px] hover:bg-[#DB4444]'>
+                                    <h3 className='text-center'>L</h3>
+                                </div>
+
+                                <div className='w-[32px] h-[32px] rounded-md border-2 border-[#807b7b] mt-[8px] hover:bg-[#DB4444]'>
+                                    <h3 className='text-center'>XL</h3>
+                                </div>
+                     </div>
+
+                     <div className="flex items-center justify-between border border-gray-300 rounded-md overflow-hidden w-max text-lg font-medium mt-4">
+                               
+                                <button className="w-10 h-10 border-r border-[#807b7b] hover:bg-[#DB4444]">−</button>
+
+                                
+                                <div className="w-10 h-10 flex items-center justify-center hover:bg-[#DB4444]">
+                                    2
+                                </div>
+
+                                
+                                <button className="w-10 h-10 hover:bg-[#DB4444] text-white rounded-r-md">
+                                    +
+                                </button>
+
+                            </div>
+
+                            <div className='ml-[150px] mt-[-40px] flex gap-3 '>
+
+                                <button className="w-[165px] h-[44px] bg-[#DB4444] text-white rounded-md  ">Buy Now</button>
+
+                                <div className='w-[40px] h-[40px] border-2 border-[#807b7b] rounded-md '>
+                                    <FiHeart className='mx-auto mt-[10px] ' />
+                                </div>
+                            </div>
+
+
+                            <div className='w-[420px] h-[180px] border-2 border-[#807b7b] mt-6'>
+                                <div className='flex gap-6 mt-4  border-b-2 w-[420px] border-[#807b7b] pb-4'>
+                                    <div className='mt-[10px]'>
+                                        <img src={bus} alt="" className='ml-[10px]' />
+                                    </div>
+                                    <div className='space-y-1 border-b-2  border-[#807b7b]'>
+                                        <h3 className='font-medium text-[16px]'>Free Delivery</h3>
+                                        <p className='inline-block text-[12px] font-medium'>Enter your postal code for Delivery Availability</p>
+                                    </div>
+                                </div>
+                                 <div className='flex gap-6 mt-4 '>
+                                    <div className='mt-[10px] '>
+                                        <img src={round} alt="" className='ml-[10px]' />
+                                    </div>
+                                    <div className='space-y-1 '>
+                                        <h3 className='font-medium text-[16px]'>Return Delivery</h3>
+                                        <p>Free 30 Days Delivery Returns. Details</p>
+                                    </div>
+                                </div>
+                                </div>
+
+                                
+
+
+                      
+
+                        
+
                   </div>
 
                 </Flex>

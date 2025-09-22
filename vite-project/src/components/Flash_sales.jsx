@@ -22,6 +22,8 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { Rate } from 'antd';
 import Explore_p_card from './Explore_p_card';
+import { useSelector } from 'react-redux'
+
 
 function SampleNextArrow(props) {
   const { onClick } = props;
@@ -52,6 +54,10 @@ function SamplePrevArrow(props) {
 
 
 const Flash_sales = () => {
+      const productdata = useSelector((state) => state.allProduct.product);  
+      console.log(productdata)   
+  
+
    const settings = {
     dots: false,
     infinite: true,
@@ -121,19 +127,19 @@ const Flash_sales = () => {
    <div className="slider-container mt-[40px]">
       <Slider {...settings}>
         <div>
-           <Explore_p_card
-                    // image1= {F1} 
-                    // ic1={Heart}
-                    // ic2={Eye}
-                    // text = "HAVIT HV-G92 Gamepad"
-                    // dolllar = "$120"
-                    // dolllar1 = "$160"
-                    // fillstar={Star1}
-                    // fillstar1={Star1}
-                    // fillstar2={Star1}
-                    // fillstar3={Star1}
-                    // fillstar4={Star1}
-                    // count= "(88)"
+           <Card
+                    image1= {F1} 
+                    ic1={Heart}
+                    ic2={Eye}
+                    text = "HAVIT HV-G92 Gamepad"
+                    dolllar = "$120"
+                    dolllar1 = "$160"
+                    fillstar={Star1}
+                    fillstar1={Star1}
+                    fillstar2={Star1}
+                    fillstar3={Star1}
+                    fillstar4={Star1}
+                    count= "(88)"
                        
                 >
                  
@@ -141,7 +147,7 @@ const Flash_sales = () => {
              <h3 className='text-[12px] font-normal px-[12px] py-[4px] bg-[#DB4444] rounded-[4px] text-white absolute top-[12px] left-[12px]'>-40%</h3>
              <button className='btn'><p>Add To Cart</p></button>
        
-                </Explore_p_card>
+                </Card>
                
         </div>
         

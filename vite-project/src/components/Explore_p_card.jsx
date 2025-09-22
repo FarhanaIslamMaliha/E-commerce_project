@@ -18,6 +18,7 @@ const Explore_p_card = ({Img, title, discount, price, discountprice, rating, rev
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  
   const handleProductDtails = () => {
       navigate(`/P_Details/${id}`);
      
@@ -25,6 +26,7 @@ const Explore_p_card = ({Img, title, discount, price, discountprice, rating, rev
  function handleAddCart(e){
   e.preventDefault();
   dispatch(AddToCartReducer(productDetails));
+  // localStorage.setItem('cart', JSON.stringify(productDetails)); 
   
   }
 
@@ -36,6 +38,7 @@ const Explore_p_card = ({Img, title, discount, price, discountprice, rating, rev
                 <img src={Img} onClick={handleProductDtails}alt="" />
                
                 <h3 className='text-[12px] font-normal px-[12px] py-[4px] bg-[#DB4444] rounded-[4px] text-white absolute top-[12px] left-[12px]'>{discount}%</h3>
+                
                       <button 
                           onClick={handleAddCart} 
                           className="btn relative z-10"
