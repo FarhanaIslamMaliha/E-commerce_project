@@ -18,7 +18,6 @@ import Star3 from "../assets/starhalffilled.png"
 
 
 
-import BreadCrumb from './BreadCrumb'
 
 const Products = () => {
   return (

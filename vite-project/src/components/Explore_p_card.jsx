@@ -26,7 +26,6 @@ const Explore_p_card = ({Img, title, discount, price, discountprice, rating, rev
  function handleAddCart(e){
   e.preventDefault();
   dispatch(AddToCartReducer(productDetails));
-  // localStorage.setItem('cart', JSON.stringify(productDetails)); 
   
   }
 
